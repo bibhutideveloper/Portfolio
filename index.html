@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Bibhuti Kumbhakar - Assistant Professor & AI Researcher | Ph.D. Scholar at BIT Mesra. Specializing in Artificial Intelligence, Machine Learning, Deep Learning, Computer Vision, and Image Processing.">
+    <meta name="keywords" content="Bibhuti Kumbhakar, Assistant Professor, AI Researcher, BIT Mesra, Srinath University, Machine Learning, Deep Learning, Computer Vision, Medical AI, Portfolio">
+    <meta name="author" content="Bibhuti Kumbhakar">
+    <title>Bibhuti Kumbhakar | Assistant Professor & AI Researcher</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- FontAwesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Leaflet CSS for 3D Globe-to-Location Map Animation -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress"></div>
+
+    <!-- Header & Navigation -->
+    <header id="navbar">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <span class="logo-accent">&lt;</span>Bibhuti<span class="logo-accent">/&gt;</span>
+            </a>
+            
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="#home" class="nav-link active">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#education" class="nav-link">Education</a></li>
+                    <li><a href="#experience" class="nav-link">Experience</a></li>
+                    <li><a href="#research-interests" class="nav-link">Research</a></li>
+                    <li><a href="#publications" class="nav-link">Publications</a></li>
+                    <li><a href="#projects" class="nav-link">Projects</a></li>
+                    <li><a href="#teaching" class="nav-link">Teaching</a></li>
+                    <li><a href="#expertise" class="nav-link">Expertise</a></li>
+                    <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle Theme">
+                    <i class="fa-solid fa-moon moon-icon"></i>
+                    <i class="fa-solid fa-sun sun-icon"></i>
+                </button>
+                
+                <a href="#contact" class="btn btn-sm btn-primary nav-cta">Get in Touch</a>
+
+                <button id="mobile-toggle" class="icon-btn mobile-menu-btn" aria-label="Toggle Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- HERO SECTION -->
+        <section id="home" class="hero-section">
+            <canvas id="neural-canvas"></canvas>
+            <div class="gradient-blob blob-1"></div>
+            <div class="gradient-blob blob-2"></div>
+
+            <div class="container hero-container">
+                <div class="hero-left" data-aos="fade-right">
+                    <div class="badge-status">
+                        <span class="pulse-dot"></span>
+                        Assistant Professor & Ph.D. Scholar
+                    </div>
+
+                    <h1 class="hero-title">
+                        Hi, I am <br>
+                        <span class="text-gradient">Bibhuti Kumbhakar</span>
+                    </h1>
+
+                    <div class="subtitle-rotator">
+                        <span class="static-prefix">I am a </span>
+                        <span id="rotating-text" class="dynamic-text">Assistant Professor</span>
+                        <span class="cursor">|</span>
+                    </div>
+
+                    <p class="hero-description">
+                        Dedicated academician and AI researcher pushing the boundaries of Deep Learning, Computer Vision, and Medical AI to solve real-world complex problems.
+                    </p>
+
+                    <div class="research-domains-pills">
+                        <span class="domain-pill"><i class="fa-solid fa-brain"></i> Artificial Intelligence</span>
+                        <span class="domain-pill"><i class="fa-solid fa-robot"></i> Machine Learning</span>
+                        <span class="domain-pill"><i class="fa-solid fa-network-wired"></i> Deep Learning</span>
+                        <span class="domain-pill"><i class="fa-solid fa-eye"></i> Computer Vision</span>
+                        <span class="domain-pill"><i class="fa-solid fa-image"></i> Image Processing</span>
+                    </div>
+
+                    <div class="hero-cta-group">
+                        <a href="#research-interests" class="btn btn-primary btn-magnetic">
+                            <i class="fa-solid fa-atom"></i> View Research
+                        </a>
+                        <a href="#publications" class="btn btn-outline btn-magnetic">
+                            <i class="fa-solid fa-book-open"></i> Publications
+                        </a>
+                        <button onclick="openCvModal()" class="btn btn-glass btn-magnetic">
+                            <i class="fa-solid fa-file-pdf"></i> Download CV
+                        </button>
+                        <a href="#contact" class="btn btn-outline-glow btn-magnetic">
+                            <i class="fa-solid fa-paper-plane"></i> Contact
+                        </a>
+                    </div>
+                </div>
+
+                <div class="hero-right" data-aos="fade-left">
+                    <div class="profile-card-wrapper">
+                        <div class="glow-ring"></div>
+                        <div class="profile-frame">
+                            <img src="assets/images/profile.jpg" alt="Bibhuti Kumbhakar" class="profile-img">
+                        </div>
+                        
+                        <!-- Floating Info Badges -->
+                        <div class="floating-badge badge-1">
+                            <i class="fa-solid fa-graduation-cap"></i>
+                            <div>
+                                <span class="badge-title">BIT Mesra</span>
+                                <span class="badge-sub">Ph.D. Scholar</span>
+                            </div>
+                        </div>
+
+                        <div class="floating-badge badge-2">
+                            <i class="fa-solid fa-university"></i>
+                            <div>
+                                <span class="badge-title">Srinath University</span>
+                                <span class="badge-sub">Assistant Professor</span>
+                            </div>
+                        </div>
+
+                        <div class="floating-badge badge-3">
+                            <i class="fa-solid fa-certificate"></i>
+                            <div>
+                                <span class="badge-title">MCA</span>
+                                <span class="badge-sub">CGPA 9.16</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="scroll-indicator">
+                <a href="#about" aria-label="Scroll Down">
+                    <div class="mouse">
+                        <div class="wheel"></div>
+                    </div>
+                    <span class="scroll-text">Scroll Down</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- ABOUT SECTION -->
+        <section id="about" class="section">
+            <div class="container">
+                <div class="section-header text-center" data-aos="fade-up">
+                    <span class="section-subtitle">Get To Know Me</span>
+                    <h2 class="section-title">About Me</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-content-box glass-card" data-aos="fade-right">
+                        <h3 class="about-heading">Empowering Innovation Through AI & Academic Mentorship</h3>
+                        <p class="about-text">
+                            I am an <strong>Assistant Professor</strong> in the Department of Computer Science & Engineering at <strong>Srinath University, Jamshedpur</strong>, and a <strong>Part-Time Ph.D. Scholar</strong> at <strong>Birla Institute of Technology (BIT) Mesra</strong>. My work focuses on <em>Artificial Intelligence, Machine Learning, Deep Learning, Computer Vision, Image Processing, and Intelligent Systems</em>. I am passionate about conducting impactful research, mentoring students, publishing scientific work, and developing intelligent solutions for real-world problems.
+                        </p>
+                        <p class="about-text">
+                            Beyond teaching and research, I actively contribute to institutional compliance, <strong>NAAC accreditation activities</strong> across multiple criteria, <strong>IQAC academic quality assurance</strong>, and regulatory processes for AISHE, AICTE, and university affiliation requirements.
+                        </p>
+
+                        <div class="about-highlights">
+                            <div class="highlight-item">
+                                <i class="fa-solid fa-check-circle"></i>
+                                <span>NAAC Accreditation & IQAC Quality Assurance Specialist</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fa-solid fa-check-circle"></i>
+                                <span>Institutional Compliance (AICTE / AISHE / HEI)</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fa-solid fa-check-circle"></i>
+                                <span>Verified Research Scholar (Google Scholar / ORCID)</span>
+                            </div>
+                            <div class="highlight-item">
+                                <i class="fa-solid fa-check-circle"></i>
+                                <span>20+ Full-Stack & AI Student Major Projects Mentored</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Counter Cards -->
+                    <div class="counters-grid" data-aos="fade-left">
+                        <div class="counter-card glass-card">
+                            <div class="counter-icon"><i class="fa-solid fa-chalkboard-user"></i></div>
+                            <div class="counter-num" data-target="2">0</div>
+                            <div class="counter-symbol">+</div>
+                            <div class="counter-label">Years of Teaching</div>
+                        </div>
+
+                        <div class="counter-card glass-card">
+                            <div class="counter-icon"><i class="fa-solid fa-scroll"></i></div>
+                            <div class="counter-num" data-target="3">0</div>
+                            <div class="counter-symbol">+</div>
+                            <div class="counter-label">Research Publications</div>
+                        </div>
+
+                        <div class="counter-card glass-card">
+                            <div class="counter-icon"><i class="fa-solid fa-trophy"></i></div>
+                            <div class="counter-num" data-target="2">0</div>
+                            <div class="counter-symbol">x</div>
+                            <div class="counter-label">IMED Web Competition Winner</div>
+                        </div>
+
+                        <div class="counter-card glass-card">
+                            <div class="counter-icon"><i class="fa-solid fa-diagram-project"></i></div>
+                            <div class="counter-num" data-target="20">0</div>
+                            <div class="counter-symbol">+</div>
+                            <div class="counter-label">Projects Mentored</div>
+                        </div>
+
+                        <div class="counter-card glass-card">
+                            <div class="counter-icon"><i class="fa-solid fa-users-line"></i></div>
+                            <div class="counter-num" data-target="150">0</div>
+                            <div class="counter-symbol">+</div>
+                            <div class="counter-label">Students Guided</div>
+                        </div>
+
+                        <div class="counter-card glass-card">
+                            <div class="counter-icon"><i class="fa-solid fa-people-group"></i></div>
+                            <div class="counter-num" data-target="8">0</div>
+                            <div class="counter-symbol">+</div>
+                            <div class="counter-label">Conference Participations</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- QUICK INFORMATION CARDS -->
+                <div class="quick-info-wrapper mt-5" data-aos="fade-up">
+                    <h3 class="sub-heading text-center mb-4"><i class="fa-solid fa-id-card"></i> Quick Information Summary</h3>
+                    <div class="quick-info-grid">
+                        <div class="info-card glass-card">
+                            <div class="info-icon"><i class="fa-solid fa-user"></i></div>
+                            <div class="info-meta">
+                                <span class="info-title">Full Name</span>
+                                <span class="info-value">Bibhuti Kumbhakar</span>
+                            </div>
+                        </div>
+
+                        <div class="info-card glass-card">
+                            <div class="info-icon"><i class="fa-solid fa-briefcase"></i></div>
+                            <div class="info-meta">
+                                <span class="info-title">Current Position</span>
+                                <span class="info-value">Assistant Professor</span>
+                            </div>
+                        </div>
+
+                        <div class="info-card glass-card">
+                            <div class="info-icon"><i class="fa-solid fa-building-columns"></i></div>
+                            <div class="info-meta">
+                                <span class="info-title">Organization</span>
+                                <span class="info-value">Srinath University</span>
+                            </div>
+                        </div>
+
+                        <div class="info-card glass-card">
+                            <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+                            <div class="info-meta">
+                                <span class="info-title">Contact Phone</span>
+                                <span class="info-value"><a href="tel:+918651996406">+91 8651996406</a></span>
+                            </div>
+                        </div>
+
+                        <div class="info-card glass-card">
+                            <div class="info-icon"><i class="fa-solid fa-user-graduate"></i></div>
+                            <div class="info-meta">
+                                <span class="info-title">Research Status</span>
+                                <span class="info-value">Part-Time Ph.D. Scholar (BIT Mesra)</span>
+                            </div>
+                        </div>
+
+                        <div class="info-card glass-card">
+                            <div class="info-icon"><i class="fa-solid fa-award"></i></div>
+                            <div class="info-meta">
+                                <span class="info-title">MCA Degree</span>
+                                <span class="info-value">Bharati Vidyapeeth IMED, Pune (9.16 CGPA)</span>
+                            </div>
+                        </div>
+
+                        <div class="info-card glass-card">
+                            <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                            <div class="info-meta">
+                                <span class="info-title">Location</span>
+                                <span class="info-value">Seraikella / Jamshedpur, Jharkhand</span>
+                            </div>
+                        </div>
+
+                        <div class="info-card glass-card">
+                            <div class="info-icon"><i class="fa-solid fa-language"></i></div>
+                            <div class="info-meta">
+                                <span class="info-title">Languages</span>
+                                <span class="info-value">English, Hindi, Odia</span>
+                            </div>
+                        </div>
+
+                        <div class="info-card glass-card">
+                            <div class="info-icon"><i class="fa-regular fa-envelope"></i></div>
+                            <div class="info-meta">
+                                <span class="info-title">Email Contact</span>
+                                <span class="info-value"><a href="mailto:bibhutikumbhakar@gmail.com">bibhutikumbhakar@gmail.com</a></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EDUCATION SECTION -->
+        <section id="education" class="section bg-alt">
+            <div class="container">
+                <div class="section-header text-center" data-aos="fade-up">
+                    <span class="section-subtitle">Academic Background</span>
+                    <h2 class="section-title">Education Timeline</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="timeline-vertical">
+                    <!-- Education 1 -->
+                    <div class="timeline-item" data-aos="fade-up">
+                        <div class="timeline-dot"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <div class="timeline-content glass-card">
+                            <div class="timeline-badge">2026 – Present</div>
+                            <h3 class="timeline-title">Doctor of Philosophy (Ph.D.)</h3>
+                            <h4 class="timeline-institution">Birla Institute of Technology (BIT) Mesra</h4>
+                            <p class="timeline-dept"><i class="fa-solid fa-book-journal-whills"></i> Department of Computer Science & Engineering</p>
+                            <span class="status-pill status-ongoing">Part-Time Ph.D. Scholar</span>
+                        </div>
+                    </div>
+
+                    <!-- Education 2 -->
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="100">
+                        <div class="timeline-dot"><i class="fa-solid fa-award"></i></div>
+                        <div class="timeline-content glass-card">
+                            <div class="timeline-badge">2021 – 2023</div>
+                            <h3 class="timeline-title">Master of Computer Applications (MCA)</h3>
+                            <h4 class="timeline-institution">Bharati Vidyapeeth Institute of Management & Entrepreneurship Development (IMED), Pune</h4>
+                            <div class="timeline-grade">
+                                <span class="grade-label">Academic Score:</span>
+                                <span class="grade-value">CGPA 9.16 / 10</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Education 3 -->
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="timeline-dot"><i class="fa-solid fa-user-graduate"></i></div>
+                        <div class="timeline-content glass-card">
+                            <div class="timeline-badge">2016 – 2019</div>
+                            <h3 class="timeline-title">Bachelor of Science (Information Technology)</h3>
+                            <h4 class="timeline-institution">Karim City College, Jamshedpur (Kolhan University)</h4>
+                            <div class="timeline-grade">
+                                <span class="grade-label">Academic Score:</span>
+                                <span class="grade-value">82.58%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Education 4 -->
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="300">
+                        <div class="timeline-dot"><i class="fa-solid fa-school"></i></div>
+                        <div class="timeline-content glass-card">
+                            <div class="timeline-badge">2016</div>
+                            <h3 class="timeline-title">Intermediate (10+2)</h3>
+                            <h4 class="timeline-institution">A. W. Inter College, Rajnagar</h4>
+                            <div class="timeline-grade">
+                                <span class="grade-label">Academic Score:</span>
+                                <span class="grade-value">57.2%</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Education 5 -->
+                    <div class="timeline-item" data-aos="fade-up" data-aos-delay="400">
+                        <div class="timeline-dot"><i class="fa-solid fa-book"></i></div>
+                        <div class="timeline-content glass-card">
+                            <div class="timeline-badge">2013</div>
+                            <h3 class="timeline-title">Matriculation (10th)</h3>
+                            <h4 class="timeline-institution">S. S. V. M. Higher Secondary School, Seraikella</h4>
+                            <div class="timeline-grade">
+                                <span class="grade-label">Academic Score:</span>
+                                <span class="grade-value">73.2%</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- EXPERIENCE SECTION -->
+        <section id="experience" class="section">
+            <div class="container">
+                <div class="section-header text-center" data-aos="fade-up">
+                    <span class="section-subtitle">Professional Journey</span>
+                    <h2 class="section-title">Teaching & Academic Experience</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="experience-grid">
+                    <!-- Experience 1 -->
+                    <div class="exp-card glass-card" data-aos="fade-up">
+                        <div class="exp-header">
+                            <div class="exp-role-box">
+                                <div class="exp-icon"><i class="fa-solid fa-briefcase"></i></div>
+                                <div>
+                                    <h3 class="exp-role">Assistant Professor</h3>
+                                    <h4 class="exp-company"><i class="fa-solid fa-building-columns"></i> Srinath University, Jamshedpur</h4>
+                                </div>
+                            </div>
+                            <span class="exp-period-badge"><i class="fa-solid fa-calendar-days"></i> May 2026 – Present</span>
+                        </div>
+
+                        <div class="exp-body">
+                            <h5 class="resp-title"><i class="fa-solid fa-list-check"></i> Key Responsibilities & Leadership:</h5>
+                            <ul class="resp-list">
+                                <li><i class="fa-solid fa-angle-right"></i> Teaching undergraduate and postgraduate students in Computer Science & Engineering.</li>
+                                <li><i class="fa-solid fa-angle-right"></i> Mentoring final-year students in major project design, practical implementation, and technical documentation.</li>
+                                <li><i class="fa-solid fa-angle-right"></i> Curriculum development and syllabus modernizations for modern AI/ML modules.</li>
+                                <li><i class="fa-solid fa-angle-right"></i> Workshop organization on artificial intelligence, deep learning, and hands-on Python tools.</li>
+                                <li><i class="fa-solid fa-angle-right"></i> Academic mentoring and student career development guidance.</li>
+                                <li><i class="fa-solid fa-angle-right"></i> Conducting high-impact Artificial Intelligence & Medical Vision research.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Experience 2 -->
+                    <div class="exp-card glass-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="exp-header">
+                            <div class="exp-role-box">
+                                <div class="exp-icon"><i class="fa-solid fa-chalkboard"></i></div>
+                                <div>
+                                    <h3 class="exp-role">Assistant Professor</h3>
+                                    <h4 class="exp-company"><i class="fa-solid fa-building-columns"></i> Netaji Subhas University, Jamshedpur</h4>
+                                </div>
+                            </div>
+                            <span class="exp-period-badge period-past"><i class="fa-solid fa-calendar-days"></i> August 2024 – May 2026</span>
+                        </div>
+
+                        <div class="exp-body">
+                            <h5 class="resp-title"><i class="fa-solid fa-list-check"></i> Key Responsibilities & Institutional Contributions:</h5>
+                            <ul class="resp-list">
+                                <li><i class="fa-solid fa-angle-right"></i> Delivered theory and practical sessions in Java, DBMS, Web Development, Computer Networks, and core CS subjects.</li>
+                                <li><i class="fa-solid fa-angle-right"></i> Designed practical-oriented curriculum, assignments, lab exercises, and assessment materials aligned with academic & industry standards.</li>
+                                <li><i class="fa-solid fa-angle-right"></i> Mentored 20+ student projects involving web applications, database systems, and full-stack development.</li>
+                                <li><i class="fa-solid fa-angle-right"></i> Contributed to NAAC accreditation activities across multiple criteria including report compilation, data collection, and departmental coordination.</li>
+                                <li><i class="fa-solid fa-angle-right"></i> Assisted in institutional compliance and documentation processes related to AISHE, AICTE, HEI approvals, and university affiliations.</li>
+                                <li><i class="fa-solid fa-angle-right"></i> Active Member of IQAC (Internal Quality Assurance Cell) academic quality assurance and affiliation coordination.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- RESEARCH INTERESTS SECTION -->
+        <section id="research-interests" class="section bg-alt">
+            <div class="container">
+                <div class="section-header text-center" data-aos="fade-up">
+                    <span class="section-subtitle">Domains & Specializations</span>
+                    <h2 class="section-title">Research Interests</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="interests-grid">
+                    <div class="interest-card glass-card" data-aos="zoom-in">
+                        <div class="interest-icon"><i class="fa-solid fa-brain"></i></div>
+                        <h3>Artificial Intelligence</h3>
+                        <p>Intelligent agent design, expert systems, heuristic search, automated reasoning, and ethical AI architectures.</p>
+                    </div>
+
+                    <div class="interest-card glass-card" data-aos="zoom-in" data-aos-delay="50">
+                        <div class="interest-icon"><i class="fa-solid fa-robot"></i></div>
+                        <h3>Machine Learning</h3>
+                        <p>Supervised and unsupervised models, ensemble learning, feature extraction, and predictive analytics.</p>
+                    </div>
+
+                    <div class="interest-card glass-card" data-aos="zoom-in" data-aos-delay="100">
+                        <div class="interest-icon"><i class="fa-solid fa-network-wired"></i></div>
+                        <h3>Deep Learning</h3>
+                        <p>Convolutional networks, recurrent architectures, Transformers, and deep generative models.</p>
+                    </div>
+
+                    <div class="interest-card glass-card" data-aos="zoom-in" data-aos-delay="150">
+                        <div class="interest-icon"><i class="fa-solid fa-eye"></i></div>
+                        <h3>Computer Vision</h3>
+                        <p>Object recognition, image segmentation, pattern extraction, optical flow, and visual tracking.</p>
+                    </div>
+
+                    <div class="interest-card glass-card" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="interest-icon"><i class="fa-solid fa-image"></i></div>
+                        <h3>Image Processing</h3>
+                        <p>Spatial filter enhancement, wavelets, morphological operations, and medical imaging modalities.</p>
+                    </div>
+
+                    <div class="interest-card glass-card" data-aos="zoom-in" data-aos-delay="250">
+                        <div class="interest-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                        <h3>Medical AI</h3>
+                        <p>Ocular-based disease detection, neurological condition diagnosis, and automated medical screening.</p>
+                    </div>
+
+                    <div class="interest-card glass-card" data-aos="zoom-in" data-aos-delay="300">
+                        <div class="interest-icon"><i class="fa-solid fa-dna"></i></div>
+                        <h3>Bioinformatics</h3>
+                        <p>Computational biology algorithms, gene expression analysis, and protein sequence prediction.</p>
+                    </div>
+
+                    <div class="interest-card glass-card" data-aos="zoom-in" data-aos-delay="350">
+                        <div class="interest-icon"><i class="fa-solid fa-cloud"></i></div>
+                        <h3>Cloud Computing</h3>
+                        <p>Distributed serverless computing, cloud virtualization, container orchestration, and resource scheduling.</p>
+                    </div>
+
+                    <div class="interest-card glass-card" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="interest-icon"><i class="fa-solid fa-database"></i></div>
+                        <h3>Data Science</h3>
+                        <p>Big data processing, statistical modeling, data mining pipelines, and business intelligence.</p>
+                    </div>
+
+                    <div class="interest-card glass-card" data-aos="zoom-in" data-aos-delay="450">
+                        <div class="interest-icon"><i class="fa-solid fa-notes-medical"></i></div>
+                        <h3>Smart Healthcare</h3>
+                        <p>IoT sensor monitoring for patient health, remote diagnostics, and predictive clinical triage.</p>
+                    </div>
+
+                    <div class="interest-card glass-card" data-aos="zoom-in" data-aos-delay="500">
+                        <div class="interest-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                        <h3>Network Security</h3>
+                        <p>AI-driven intrusion detection systems, cryptographic protocol optimization, and threat analytics.</p>
+                    </div>
+
+                    <div class="interest-card glass-card" data-aos="zoom-in" data-aos-delay="550">
+                        <div class="interest-icon"><i class="fa-solid fa-gears"></i></div>
+                        <h3>Intelligent Systems</h3>
+                        <p>Autonomous multi-agent coordination, real-time crisis prediction, and fault-tolerant computing.</p>
+                    </div>
+
+                    <div class="interest-card glass-card" data-aos="zoom-in" data-aos-delay="600">
+                        <div class="interest-icon"><i class="fa-solid fa-city"></i></div>
+                        <h3>Smart Cities</h3>
+                        <p>AI traffic congestion prediction, smart waste management, and intelligent municipal infrastructure.</p>
+                    </div>
+
+                    <div class="interest-card glass-card" data-aos="zoom-in" data-aos-delay="650">
+                        <div class="interest-icon"><i class="fa-solid fa-leaf"></i></div>
+                        <h3>Green AI</h3>
+                        <p>Energy-efficient deep learning architectures, lightweight edge models, and sustainable computing.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PUBLICATIONS SECTION -->
+        <section id="publications" class="section">
+            <div class="container">
+                <div class="section-header text-center" data-aos="fade-up">
+                    <span class="section-subtitle">Scholarly Contributions</span>
+                    <h2 class="section-title">Research Publications</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <!-- Publication Statistics Bar -->
+                <div class="pub-stats-bar glass-card" data-aos="fade-up">
+                    <div class="pub-stat">
+                        <span class="pub-stat-num">3</span>
+                        <span class="pub-stat-label">Peer-Reviewed Papers</span>
+                    </div>
+                    <div class="pub-stat">
+                        <span class="pub-stat-num">2+</span>
+                        <span class="pub-stat-label">Total Citations</span>
+                    </div>
+                    <div class="pub-stat">
+                        <span class="pub-stat-num">100%</span>
+                        <span class="pub-stat-label">Scopus</span>
+                    </div>
+                    <div class="pub-stat-link">
+                        <a href="https://scholar.google.com/citations?user=AL9aBgUAAAAJ&hl=en" target="_blank" rel="noopener" class="btn btn-sm btn-outline">
+                            <i class="fa-brands fa-google-scholar"></i> Google Scholar Profile
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Search & Filter Controls -->
+                <div class="filter-controls" data-aos="fade-up">
+                    <div class="search-box">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" id="pub-search" placeholder="Search publications by keyword, journal, or author..." aria-label="Search Publications">
+                    </div>
+
+                    <div class="filter-sort-wrapper">
+                        <div class="filter-pills" id="pub-filters">
+                            <button class="filter-btn active" data-filter="all">All Publications</button>
+                            <button class="filter-btn" data-filter="medical">Medical AI</button>
+                            <button class="filter-btn" data-filter="ocular">Ocular & Vision</button>
+                            <button class="filter-btn" data-filter="crisis">Crisis & Systems</button>
+                        </div>
+
+                        <div class="sort-box">
+                            <label for="pub-sort"><i class="fa-solid fa-arrow-down-short-wide"></i> Sort By:</label>
+                            <select id="pub-sort" class="sort-select">
+                                <option value="year-desc" selected>Year (Newest First)</option>
+                                <option value="year-asc">Year (Oldest First)</option>
+                                <option value="citations-desc">Citations (Highest First)</option>
+                                <option value="title-asc">Title (A-Z)</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Publication Cards List -->
+                <div class="publications-list" id="publications-container">
+                    
+                    <!-- Paper 2 (2025 - Newest) -->
+                    <div class="pub-card glass-card" data-category="ocular medical" data-year="2025" data-citations="0" data-title="The Eye as a Window to the Brain: A Comprehensive Review of Machine Learning for Ocular-Based Neurological Disease Detection" data-aos="fade-up">
+                        <div class="pub-header">
+                            <span class="pub-year-badge"><i class="fa-solid fa-calendar-day"></i> August 2025</span>
+                            <span class="scopus-badge"><i class="fa-solid fa-check-double"></i> Scopus</span>
+                            <span class="pub-journal-tag"><i class="fa-solid fa-book-bookmark"></i> International Journal of Applied Mathematics</span>
+                        </div>
+                        <h3 class="pub-title">
+                            <a href="https://doi.org/10.12732/ijam.v38i12s.1519" target="_blank" rel="noopener" class="pub-title-link">
+                                The Eye as a "Window to the Brain": A Comprehensive Review of Machine Learning for Ocular-Based Neurological Disease Detection <i class="fa-solid fa-arrow-up-right-from-square title-link-icon"></i>
+                            </a>
+                        </h3>
+                        <p class="pub-authors">
+                            <i class="fa-solid fa-users"></i> <strong>Authors:</strong> Deep Narayan, <u>Bibhuti Kumbhakar</u>, Pratik Patel, Prashant Pradhan, Sonu Kumar, Ram Kumar Thakur, Ritesh Kumar Jha, Ranjan Kumar Mishra
+                        </p>
+                        <p class="pub-doi">
+                            <i class="fa-solid fa-fingerprint"></i> <strong>DOI:</strong> <a href="https://doi.org/10.12732/ijam.v38i12s.1519" target="_blank" rel="noopener">10.12732/ijam.v38i12s.1519</a>
+                        </p>
+                        <p class="pub-abstract">
+                            A comprehensive systematic survey reviewing state-of-the-art machine learning algorithms and computer vision techniques for detecting systemic neurological pathologies via retinal imaging and ocular biomarker analytics.
+                        </p>
+                        <div class="pub-footer">
+                            <span class="pub-citations"><i class="fa-solid fa-quote-left"></i> Citations: <strong>0</strong> (Recent 2025)</span>
+                            <div class="pub-actions">
+                                <button onclick="showBibtex('pub2')" class="btn btn-xs btn-outline"><i class="fa-solid fa-code"></i> BibTeX</button>
+                                <button onclick="showCiteModal('The Eye as a Window to the Brain: A Comprehensive Review of Machine Learning for Ocular-Based Neurological Disease Detection', 'Deep Narayan, Bibhuti Kumbhakar, Pratik Patel, Prashant Pradhan, Sonu Kumar, Ram Kumar Thakur, Ritesh Kumar Jha, Ranjan Kumar Mishra', 'International Journal of Applied Mathematics', '2025')" class="btn btn-xs btn-primary"><i class="fa-solid fa-quote-right"></i> Cite</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Paper 1 (2024) -->
+                    <div class="pub-card glass-card" data-category="medical" data-year="2024" data-citations="2" data-title="Detection of Neurological Diseases Using Machine Learning" data-aos="fade-up" data-aos-delay="100">
+                        <div class="pub-header">
+                            <span class="pub-year-badge"><i class="fa-solid fa-calendar-day"></i> November 2024</span>
+                            <span class="scopus-badge"><i class="fa-solid fa-check-double"></i> Scopus</span>
+                            <span class="pub-journal-tag"><i class="fa-solid fa-journal-of-the-medical-sciences"></i> Vascular and Endovascular Review</span>
+                        </div>
+                        <h3 class="pub-title">
+                            <a href="https://doi.org/10.64149/J.Ver.7.2.77-87" target="_blank" rel="noopener" class="pub-title-link">
+                                Detection of Neurological Diseases Using Machine Learning <i class="fa-solid fa-arrow-up-right-from-square title-link-icon"></i>
+                            </a>
+                        </h3>
+                        <p class="pub-authors">
+                            <i class="fa-solid fa-users"></i> <strong>Authors:</strong> Deep Narayan, Ranjan Kumar Mishra, Pramod Kumar Singh, Shashwat Raj, <u>Bibhuti Kumbhakar</u>, Sonu Kumar, Pratik Patel, Sudhir Dawra
+                        </p>
+                        <p class="pub-doi">
+                            <i class="fa-solid fa-fingerprint"></i> <strong>DOI:</strong> <a href="https://doi.org/10.64149/J.Ver.7.2.77-87" target="_blank" rel="noopener">10.64149/J.Ver.7.2.77-87</a>
+                        </p>
+                        <p class="pub-abstract">
+                            This research presents a novel non-invasive predictive pipeline utilizing optimized machine learning classifiers to accurately detect early-stage neurological disorders through physiological markers.
+                        </p>
+                        <div class="pub-footer">
+                            <span class="pub-citations"><i class="fa-solid fa-quote-left"></i> Citations: <strong>2</strong></span>
+                            <div class="pub-actions">
+                                <button onclick="showBibtex('pub1')" class="btn btn-xs btn-outline"><i class="fa-solid fa-code"></i> BibTeX</button>
+                                <button onclick="showCiteModal('Detection of Neurological Diseases Using Machine Learning', 'Deep Narayan, Ranjan Kumar Mishra, Pramod Kumar Singh, Shashwat Raj, Bibhuti Kumbhakar, Sonu Kumar, Pratik Patel, Sudhir Dawra', 'Vascular and Endovascular Review', '2024')" class="btn btn-xs btn-primary"><i class="fa-solid fa-quote-right"></i> Cite</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Paper 3 (2024) -->
+                    <div class="pub-card glass-card" data-category="crisis" data-year="2024" data-citations="0" data-title="An AI Driven Predictive Framework for Crisis Management and Organizational Resilience Using Multi Source Real Time Data" data-aos="fade-up" data-aos-delay="200">
+                        <div class="pub-header">
+                            <span class="pub-year-badge"><i class="fa-solid fa-calendar-day"></i> October 2024</span>
+                            <span class="scopus-badge"><i class="fa-solid fa-check-double"></i> Scopus</span>
+                            <span class="pub-journal-tag"><i class="fa-solid fa-diagram-project"></i> Journal of Information Systems Engineering and Management</span>
+                        </div>
+                        <h3 class="pub-title">
+                            <a href="https://www.jisem-journal.com/index.php/journal/article/view/13948" target="_blank" rel="noopener" class="pub-title-link">
+                                An AI Driven Predictive Framework for Crisis Management and Organizational Resilience Using Multi Source Real Time Data <i class="fa-solid fa-arrow-up-right-from-square title-link-icon"></i>
+                            </a>
+                        </h3>
+                        <p class="pub-authors">
+                            <i class="fa-solid fa-users"></i> <strong>Authors:</strong> <u>Bibhuti Kumbhakar</u>, Ashmita Mahanty, Prashant Pradhan, Kanak Lata, Penta Surya Prakash Rao, Deep Narayan
+                        </p>
+                        <p class="pub-doi">
+                            <i class="fa-solid fa-link"></i> <strong>URI:</strong> <a href="https://www.jisem-journal.com/index.php/journal/article/view/13948" target="_blank" rel="noopener">https://www.jisem-journal.com/index.php/journal/article/view/13948</a>
+                        </p>
+                        <p class="pub-abstract">
+                            Proposes a real-time multi-source data ingestion framework combining deep learning anomaly detection and sentiment analytics to enhance organizational crisis response speed and structural resilience.
+                        </p>
+                        <div class="pub-footer">
+                            <span class="pub-citations"><i class="fa-solid fa-quote-left"></i> Citations: <strong>0</strong></span>
+                            <div class="pub-actions">
+                                <button onclick="showBibtex('pub3')" class="btn btn-xs btn-outline"><i class="fa-solid fa-code"></i> BibTeX</button>
+                                <button onclick="showCiteModal('An AI Driven Predictive Framework for Crisis Management and Organizational Resilience Using Multi Source Real Time Data', 'Bibhuti Kumbhakar, Ashmita Mahanty, Prashant Pradhan, Kanak Lata, Penta Surya Prakash Rao, Deep Narayan', 'Journal of Information Systems Engineering and Management', '2024')" class="btn btn-xs btn-primary"><i class="fa-solid fa-quote-right"></i> Cite</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- RESEARCH PROJECTS SECTION -->
+        <section id="projects" class="section bg-alt">
+            <div class="container">
+                <div class="section-header text-center" data-aos="fade-up">
+                    <span class="section-subtitle">Applied Research & Software Engineering</span>
+                    <h2 class="section-title">Projects & Applications</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <!-- Projects Filter Controls -->
+                <div class="filter-controls" data-aos="fade-up">
+                    <div class="filter-pills justify-content-center" id="project-filters">
+                        <button class="project-filter-btn active" data-filter="all">All Projects</button>
+                        <button class="project-filter-btn" data-filter="ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Ongoing</button>
+                        <button class="project-filter-btn" data-filter="completed"><i class="fa-solid fa-circle-check"></i> Completed</button>
+                    </div>
+                </div>
+
+                <div class="projects-grid" id="projects-container">
+
+                    <!-- Project 1 -->
+                    <div class="project-card glass-card" data-status="completed" data-title="AI-Based Smart Waste Management" data-aos="fade-up">
+                        <div class="project-header">
+                            <span class="status-tag status-completed"><i class="fa-solid fa-circle-check"></i> Completed</span>
+                            <span class="domain-tag">Intelligent Systems</span>
+                        </div>
+                        <h3 class="project-title">AI-Based Smart Waste Management</h3>
+                        <p class="project-overview">IoT-connected computer vision garbage classification and automated route optimization framework for municipal urban waste management.</p>
+                        <div class="project-meta">
+                            <strong><i class="fa-solid fa-bullseye"></i> Objective:</strong> Reduce urban carbon footprint using automated YOLO object detection and green route algorithms.
+                        </div>
+                    </div>
+
+                    <!-- Project 2 -->
+                    <div class="project-card glass-card" data-status="completed" data-title="AI Intrusion Detection System" data-aos="fade-up" data-aos-delay="100">
+                        <div class="project-header">
+                            <span class="status-tag status-completed"><i class="fa-solid fa-circle-check"></i> Completed</span>
+                            <span class="domain-tag">Network Security</span>
+                        </div>
+                        <h3 class="project-title">AI Intrusion Detection System</h3>
+                        <p class="project-overview">Deep learning anomaly detector trained on network packet flows to identify zero-day cyber threats in real time.</p>
+                        <div class="project-meta">
+                            <strong><i class="fa-solid fa-bullseye"></i> Objective:</strong> Achieve 99.4% classification accuracy on suspicious payload signatures.
+                        </div>
+                    </div>
+
+                    <!-- Project 3 -->
+                    <div class="project-card glass-card" data-status="ongoing" data-title="Medical AI - Neurological Disease Detection" data-aos="fade-up" data-aos-delay="200">
+                        <div class="project-header">
+                            <span class="status-tag status-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Ongoing</span>
+                            <span class="domain-tag">Medical AI</span>
+                        </div>
+                        <h3 class="project-title">Medical AI - Neurological Disease Detection</h3>
+                        <p class="project-overview">Non-invasive diagnostic suite evaluating ocular micro-vascular patterns to detect Alzheimer's and Parkinson's early.</p>
+                        <div class="project-meta">
+                            <strong><i class="fa-solid fa-bullseye"></i> Objective:</strong> Provide low-cost clinical decision support tools for rural health clinics.
+                        </div>
+                    </div>
+
+                    <!-- Project 4 -->
+                    <div class="project-card glass-card" data-status="completed" data-title="Journal Management System" data-aos="fade-up" data-aos-delay="300">
+                        <div class="project-header">
+                            <span class="status-tag status-completed"><i class="fa-solid fa-circle-check"></i> Completed</span>
+                            <span class="domain-tag">Academic Software</span>
+                        </div>
+                        <h3 class="project-title">Journal Management System</h3>
+                        <p class="project-overview">Full-stack automated double-blind peer-review processing portal with integrated DOI Crossref metadata generator.</p>
+                        <div class="project-meta">
+                            <strong><i class="fa-solid fa-bullseye"></i> Objective:</strong> Streamline academic journal publishing workflow and editorial review times.
+                        </div>
+                    </div>
+
+                    <!-- Project 5 -->
+                    <div class="project-card glass-card" data-status="ongoing" data-title="Cloud Security using AI" data-aos="fade-up" data-aos-delay="400">
+                        <div class="project-header">
+                            <span class="status-tag status-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Ongoing</span>
+                            <span class="domain-tag">Cloud & Security</span>
+                        </div>
+                        <h3 class="project-title">Cloud Security using AI</h3>
+                        <p class="project-overview">Predictive micro-segmentation and access control policy manager operating within multi-cloud Docker/Kubernetes clusters.</p>
+                        <div class="project-meta">
+                            <strong><i class="fa-solid fa-bullseye"></i> Objective:</strong> Prevent data exfiltration attacks through automated behavioral policy adaptation.
+                        </div>
+                    </div>
+
+                    <!-- Project 6 -->
+                    <div class="project-card glass-card" data-status="completed" data-title="Traffic Prediction System" data-aos="fade-up" data-aos-delay="500">
+                        <div class="project-header">
+                            <span class="status-tag status-completed"><i class="fa-solid fa-circle-check"></i> Completed</span>
+                            <span class="domain-tag">Smart Cities</span>
+                        </div>
+                        <h3 class="project-title">Traffic Prediction System</h3>
+                        <p class="project-overview">Spatial-temporal LSTM network forecasting junction congestion levels using live camera feeds and historical sensor data.</p>
+                        <div class="project-meta">
+                            <strong><i class="fa-solid fa-bullseye"></i> Objective:</strong> Minimize traffic delays by dynamically re-routing emergency vehicles.
+                        </div>
+                    </div>
+
+                    <!-- Project 7 -->
+                    <div class="project-card glass-card" data-status="ongoing" data-title="Computer Vision Applications" data-aos="fade-up" data-aos-delay="600">
+                        <div class="project-header">
+                            <span class="status-tag status-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Ongoing</span>
+                            <span class="domain-tag">Computer Vision</span>
+                        </div>
+                        <h3 class="project-title">Computer Vision Applications</h3>
+                        <p class="project-overview">Custom Vision models for automated agricultural crop disease identification and industrial quality control.</p>
+                        <div class="project-meta">
+                            <strong><i class="fa-solid fa-bullseye"></i> Objective:</strong> Deploy lightweight TensorFlow Lite edge vision algorithms on Raspberry Pi.
+                        </div>
+                    </div>
+
+                    <!-- Project 8 -->
+                    <div class="project-card glass-card" data-status="ongoing" data-title="Deep Learning Frameworks" data-aos="fade-up" data-aos-delay="700">
+                        <div class="project-header">
+                            <span class="status-tag status-ongoing"><i class="fa-solid fa-spinner fa-spin"></i> Ongoing</span>
+                            <span class="domain-tag">Deep Learning</span>
+                        </div>
+                        <h3 class="project-title">Deep Learning Frameworks</h3>
+                        <p class="project-overview">Modular Python PyTorch toolkit simplifying transfer learning, model pruning, and hyperparameter tuning for scholars.</p>
+                        <div class="project-meta">
+                            <strong><i class="fa-solid fa-bullseye"></i> Objective:</strong> Accelerate academic experimentation setup times for student researchers.
+                        </div>
+                    </div>
+
+                    <!-- Project 9 -->
+                    <div class="project-card glass-card" data-status="completed" data-title="Crisis Prediction Framework" data-aos="fade-up" data-aos-delay="800">
+                        <div class="project-header">
+                            <span class="status-tag status-completed"><i class="fa-solid fa-circle-check"></i> Completed</span>
+                            <span class="domain-tag">Data Science</span>
+                        </div>
+                        <h3 class="project-title">Crisis Prediction Framework</h3>
+                        <p class="project-overview">Multi-stream NLP & time-series architecture synthesizing social, environmental, and financial risk signals.</p>
+                        <div class="project-meta">
+                            <strong><i class="fa-solid fa-bullseye"></i> Objective:</strong> Provide early warning indicators for institutional disaster resilience.
+                        </div>
+                    </div>
+
+                    <!-- Resume Project 10 (End): Das Enterprises -->
+                    <div class="project-card glass-card" data-status="completed" data-title="Das Enterprises - Product Showcase Portal" data-aos="fade-up" data-aos-delay="900">
+                        <div class="project-header">
+                            <span class="status-tag status-completed"><i class="fa-solid fa-circle-check"></i> Completed</span>
+                            <span class="domain-tag">Full-Stack Web</span>
+                        </div>
+                        <h3 class="project-title">Das Enterprises - Product Showcase Portal</h3>
+                        <p class="project-overview">A commercial web application developed for a steel & iron product manufacturing company to showcase products, services, and client inquiries.</p>
+                        <div class="project-meta">
+                            <strong><i class="fa-solid fa-layer-group"></i> Tech Used:</strong> HTML5 | CSS3 | JavaScript | PHP | MySQL
+                        </div>
+                    </div>
+
+                    <!-- Resume Project 11 (End): BookBank -->
+                    <div class="project-card glass-card" data-status="completed" data-title="BookBank - Full-Stack Book Exchange Platform" data-aos="fade-up" data-aos-delay="1000">
+                        <div class="project-header">
+                            <span class="status-tag status-completed"><i class="fa-solid fa-circle-check"></i> Completed</span>
+                            <span class="domain-tag">Enterprise Java</span>
+                        </div>
+                        <h3 class="project-title">BookBank - Full-Stack Book Exchange Platform</h3>
+                        <p class="project-overview">Developed an end-to-end web portal enabling users to exchange books featuring secure user authentication, inventory tracking, and database query optimization.</p>
+                        <div class="project-meta">
+                            <strong><i class="fa-solid fa-layer-group"></i> Tech Used:</strong> Java | Spring Boot | Thymeleaf | MySQL | HTML / CSS
+                        </div>
+                    </div>
+
+                    <!-- Resume Project 12 (End): E-Farming -->
+                    <div class="project-card glass-card" data-status="completed" data-title="E-Farming - Farmer Marketplace Portal" data-aos="fade-up" data-aos-delay="1100">
+                        <div class="project-header">
+                            <span class="status-tag status-completed"><i class="fa-solid fa-circle-check"></i> Completed</span>
+                            <span class="domain-tag">AgriTech AI</span>
+                        </div>
+                        <h3 class="project-title">E-Farming - Farmer Marketplace Portal</h3>
+                        <p class="project-overview">Web-based online portal assisting local agricultural farmers in directly listing crops and connecting with licensed grain dealers for fair pricing.</p>
+                        <div class="project-meta">
+                            <strong><i class="fa-solid fa-layer-group"></i> Tech Used:</strong> HTML5 | CSS3 | JavaScript | PHP | SQL
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- TEACHING SECTION -->
+        <section id="teaching" class="section">
+            <div class="container">
+                <div class="section-header text-center" data-aos="fade-up">
+                    <span class="section-subtitle">Academic Pedagogy</span>
+                    <h2 class="section-title">Teaching & Courses</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="course-filter-pills text-center mb-4" data-aos="fade-up">
+                    <button class="course-pill active" data-category="all">All Courses</button>
+                    <button class="course-pill" data-category="core">Core CS</button>
+                    <button class="course-pill" data-category="ai">AI & ML</button>
+                    <button class="course-pill" data-category="dev">Web & Software Dev</button>
+                </div>
+
+                <div class="teaching-grid">
+                    <div class="course-card glass-card" data-category="dev" data-aos="fade-up">
+                        <div class="course-icon"><i class="fa-brands fa-java"></i></div>
+                        <h3 class="course-name">Java & Core Programming</h3>
+                        <span class="course-tag">Object-Oriented Architecture & JDBC</span>
+                    </div>
+
+                    <div class="course-card glass-card" data-category="core" data-aos="fade-up">
+                        <div class="course-icon"><i class="fa-solid fa-database"></i></div>
+                        <h3 class="course-name">Database Management Systems</h3>
+                        <span class="course-tag">Relational Design, SQL & Query Optimization</span>
+                    </div>
+
+                    <div class="course-card glass-card" data-category="dev" data-aos="fade-up">
+                        <div class="course-icon"><i class="fa-solid fa-code"></i></div>
+                        <h3 class="course-name">Web Development & Frameworks</h3>
+                        <span class="course-tag">HTML, CSS, Bootstrap, PHP & Spring Boot</span>
+                    </div>
+
+                    <div class="course-card glass-card" data-category="core" data-aos="fade-up">
+                        <div class="course-icon"><i class="fa-solid fa-network-wired"></i></div>
+                        <h3 class="course-name">Computer Networks</h3>
+                        <span class="course-tag">OSI Layers, TCP/IP & Routing Protocols</span>
+                    </div>
+
+                    <div class="course-card glass-card" data-category="core" data-aos="fade-up">
+                        <div class="course-icon"><i class="fa-solid fa-microchip"></i></div>
+                        <h3 class="course-name">Operating Systems</h3>
+                        <span class="course-tag">Process Scheduling, Memory & Concurrency</span>
+                    </div>
+
+                    <div class="course-card glass-card" data-category="ai" data-aos="fade-up">
+                        <div class="course-icon"><i class="fa-solid fa-brain"></i></div>
+                        <h3 class="course-name">Artificial Intelligence</h3>
+                        <span class="course-tag">Search & Knowledge Representation</span>
+                    </div>
+
+                    <div class="course-card glass-card" data-category="ai" data-aos="fade-up">
+                        <div class="course-icon"><i class="fa-solid fa-robot"></i></div>
+                        <h3 class="course-name">Machine Learning</h3>
+                        <span class="course-tag">Algorithms & Neural Networks</span>
+                    </div>
+
+                    <div class="course-card glass-card" data-category="core" data-aos="fade-up">
+                        <div class="course-icon"><i class="fa-solid fa-sitemap"></i></div>
+                        <h3 class="course-name">Data Structures</h3>
+                        <span class="course-tag">Trees, Graphs & Dynamic Arrays</span>
+                    </div>
+
+                    <div class="course-card glass-card" data-category="dev" data-aos="fade-up">
+                        <div class="course-icon"><i class="fa-brands fa-python"></i></div>
+                        <h3 class="course-name">Python Programming</h3>
+                        <span class="course-tag">OOP & Scientific Computing</span>
+                    </div>
+
+                    <div class="course-card glass-card" data-category="dev" data-aos="fade-up">
+                        <div class="course-icon"><i class="fa-solid fa-diagram-project"></i></div>
+                        <h3 class="course-name">Software Engineering</h3>
+                        <span class="course-tag">Agile, SDLC & System Modeling</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TECHNICAL EXPERTISE SECTION -->
+        <section id="expertise" class="section bg-alt">
+            <div class="container">
+                <div class="section-header text-center" data-aos="fade-up">
+                    <span class="section-subtitle">Skills & Technologies</span>
+                    <h2 class="section-title">Technical Expertise</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="expertise-grid">
+                    
+                    <!-- Programming -->
+                    <div class="skill-category-card glass-card" data-aos="fade-up">
+                        <div class="skill-cat-header">
+                            <i class="fa-solid fa-code"></i>
+                            <h3>Programming & Web Tech</h3>
+                        </div>
+                        <div class="skills-tags">
+                            <span class="skill-badge"><i class="fa-brands fa-java"></i> Java</span>
+                            <span class="skill-badge"><i class="fa-brands fa-js"></i> JavaScript</span>
+                            <span class="skill-badge"><i class="fa-solid fa-database"></i> SQL</span>
+                            <span class="skill-badge"><i class="fa-brands fa-python"></i> Python</span>
+                            <span class="skill-badge"><i class="fa-brands fa-html5"></i> HTML5</span>
+                            <span class="skill-badge"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+                            <span class="skill-badge"><i class="fa-brands fa-bootstrap"></i> Bootstrap</span>
+                            <span class="skill-badge"><i class="fa-brands fa-php"></i> PHP</span>
+                        </div>
+                    </div>
+
+                    <!-- Frameworks & DB -->
+                    <div class="skill-category-card glass-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="skill-cat-header">
+                            <i class="fa-solid fa-layer-group"></i>
+                            <h3>Frameworks & Databases</h3>
+                        </div>
+                        <div class="skills-tags">
+                            <span class="skill-badge">Spring Boot</span>
+                            <span class="skill-badge">Thymeleaf</span>
+                            <span class="skill-badge">JDBC</span>
+                            <span class="skill-badge">Hibernate JPA</span>
+                            <span class="skill-badge">MySQL</span>
+                            <span class="skill-badge">Database Design</span>
+                            <span class="skill-badge">Query Optimization</span>
+                        </div>
+                    </div>
+
+                    <!-- AI & ML -->
+                    <div class="skill-category-card glass-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="skill-cat-header">
+                            <i class="fa-solid fa-brain"></i>
+                            <h3>AI, Deep Learning & Vision</h3>
+                        </div>
+                        <div class="skills-tags">
+                            <span class="skill-badge">TensorFlow</span>
+                            <span class="skill-badge">PyTorch</span>
+                            <span class="skill-badge">OpenCV</span>
+                            <span class="skill-badge">YOLO</span>
+                            <span class="skill-badge">CNN & ResNet</span>
+                            <span class="skill-badge">Scikit-learn</span>
+                            <span class="skill-badge">NumPy & Pandas</span>
+                        </div>
+                    </div>
+
+                    <!-- Tools & Governance -->
+                    <div class="skill-category-card glass-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="skill-cat-header">
+                            <i class="fa-solid fa-toolbox"></i>
+                            <h3>Tools & Academic Governance</h3>
+                        </div>
+                        <div class="skills-tags">
+                            <span class="skill-badge"><i class="fa-brands fa-git-alt"></i> Git</span>
+                            <span class="skill-badge">Postman</span>
+                            <span class="skill-badge">VS Code</span>
+                            <span class="skill-badge">Jupyter Notebook</span>
+                            <span class="skill-badge">NAAC Accreditation</span>
+                            <span class="skill-badge">IQAC Coordination</span>
+                            <span class="skill-badge">AISHE & AICTE Compliance</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- RESEARCH PHILOSOPHY SECTION -->
+        <section id="philosophy" class="section">
+            <div class="container">
+                <div class="philosophy-card glass-card" data-aos="zoom-in">
+                    <div class="quote-icon"><i class="fa-solid fa-quote-left"></i></div>
+                    <span class="section-subtitle text-center">Core Academic Vision</span>
+                    <h2 class="section-title text-center">Research Philosophy</h2>
+                    <div class="title-underline center"></div>
+
+                    <p class="philosophy-text text-center">
+                        "I believe Artificial Intelligence should solve meaningful real-world challenges through ethical, interpretable, and impactful research. My work aims to bridge theory with practical implementation while fostering innovation, collaboration, and lifelong learning. Through interdisciplinary research and academic excellence, I aspire to contribute solutions that advance healthcare, intelligent systems, education, and society."
+                    </p>
+
+                    <div class="philosophy-author text-center">
+                        <span class="author-name">Bibhuti Kumbhakar</span>
+                        <span class="author-title">Assistant Professor & Ph.D. Scholar</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACHIEVEMENTS SECTION -->
+        <section id="achievements" class="section bg-alt">
+            <div class="container">
+                <div class="section-header text-center" data-aos="fade-up">
+                    <span class="section-subtitle">Milestones & Competitions</span>
+                    <h2 class="section-title">Key Achievements & Honors</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="achievements-timeline">
+                    <!-- Resume Award 1 -->
+                    <div class="achievement-card glass-card" data-aos="fade-up">
+                        <div class="ach-icon"><i class="fa-solid fa-trophy"></i></div>
+                        <div class="ach-content">
+                            <h3>Winner - IMED GEMS Web Development Competition (2022)</h3>
+                            <p>Awarded First Place in the annual GEMS Web Development Competition at Bharati Vidyapeeth Institute of Management & Entrepreneurship Development (IMED), Pune.</p>
+                        </div>
+                    </div>
+
+                    <!-- Resume Award 2 -->
+                    <div class="achievement-card glass-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="ach-icon"><i class="fa-solid fa-trophy"></i></div>
+                        <div class="ach-content">
+                            <h3>Winner - IMED GEMS Web Development Competition (2021)</h3>
+                            <p>Secured Champion Title in the Web Development Challenge at Bharati Vidyapeeth IMED, Pune, demonstrating full-stack engineering proficiency.</p>
+                        </div>
+                    </div>
+
+                    <div class="achievement-card glass-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="ach-icon"><i class="fa-solid fa-book-bookmark"></i></div>
+                        <div class="ach-content">
+                            <h3>Published Research Papers</h3>
+                            <p>Authored multiple high-impact research articles in Scopus-indexed international journals covering Medical AI, Ocular Biometrics, and Crisis Management Frameworks.</p>
+                        </div>
+                    </div>
+
+                    <div class="achievement-card glass-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="ach-icon"><i class="fa-solid fa-building-columns"></i></div>
+                        <div class="ach-content">
+                            <h3>Assistant Professor Appointment</h3>
+                            <p>Serving as Assistant Professor at Srinath University, Jamshedpur, guiding undergraduate and postgraduate students in computer science excellence.</p>
+                        </div>
+                    </div>
+
+                    <div class="achievement-card glass-card" data-aos="fade-up" data-aos-delay="400">
+                        <div class="ach-icon"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <div class="ach-content">
+                            <h3>Ph.D. Scholar Enrolment</h3>
+                            <p>Enrolled as a Part-Time Ph.D. Scholar at the prestigious Birla Institute of Technology (BIT) Mesra in Computer Science & Engineering.</p>
+                        </div>
+                    </div>
+
+                    <div class="achievement-card glass-card" data-aos="fade-up" data-aos-delay="500">
+                        <div class="ach-icon"><i class="fa-solid fa-clipboard-check"></i></div>
+                        <div class="ach-content">
+                            <h3>NAAC & IQAC Academic Governance Leadership</h3>
+                            <p>Actively contributed to NAAC accreditation reports, IQAC quality assurance, and institutional compliance (AICTE / AISHE / HEI).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- GALLERY SECTION -->
+        <section id="gallery" class="section">
+            <div class="container">
+                <div class="section-header text-center" data-aos="fade-up">
+                    <span class="section-subtitle">Academic Life & Events</span>
+                    <h2 class="section-title">Photo Gallery</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="gallery-masonry" data-aos="fade-up">
+                    <div class="gallery-item" onclick="openLightbox('assets/images/seminar.jpg', 'Keynote Seminar on Artificial Intelligence')">
+                        <img src="assets/images/seminar.jpg" alt="Academic Seminar" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="gallery-tag">Seminars & Conferences</span>
+                            <h4>AI Keynote Presentation</h4>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox('assets/images/lab.jpg', 'AI & Deep Learning Computing Lab')">
+                        <img src="assets/images/lab.jpg" alt="AI Research Lab" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="gallery-tag">Laboratory & Research</span>
+                            <h4>High-Performance Computing Lab</h4>
+                        </div>
+                    </div>
+
+                    <div class="gallery-item" onclick="openLightbox('assets/images/teaching.jpg', 'Interactive University Classroom Lecture')">
+                        <img src="assets/images/teaching.jpg" alt="Teaching & Lectures" loading="lazy">
+                        <div class="gallery-overlay">
+                            <span class="gallery-tag">Teaching & Mentorship</span>
+                            <h4>Classroom Interactive Lecture</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TESTIMONIALS SECTION -->
+        <section id="testimonials" class="section bg-alt">
+            <div class="container">
+                <div class="section-header text-center" data-aos="fade-up">
+                    <span class="section-subtitle">Feedback & Endorsements</span>
+                    <h2 class="section-title">Academic Testimonials</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="testimonial-carousel-container" data-aos="fade-up">
+                    <button class="carousel-nav prev" id="testimonial-prev" aria-label="Previous Testimonial">
+                        <i class="fa-solid fa-chevron-left"></i>
+                    </button>
+
+                    <div class="testimonial-wrapper">
+                        <div class="testimonial-track" id="testimonial-track">
+                            
+                            <!-- Slide 1 -->
+                            <div class="testimonial-slide">
+                                <div class="testimonial-card glass-card">
+                                    <div class="testimonial-quote"><i class="fa-solid fa-quote-left"></i></div>
+                                    <p class="testimonial-text">
+                                        "Prof. Bibhuti Kumbhakar's lectures in Deep Learning and Machine Learning are exceptionally clear and well-structured. He bridges abstract mathematical concepts with practical Python implementations, encouraging us to innovate."
+                                    </p>
+                                    <div class="testimonial-author">
+                                        <div class="author-avatar"><i class="fa-solid fa-user-graduate"></i></div>
+                                        <div>
+                                            <h4 class="author-name-t">B.Tech Student</h4>
+                                            <span class="author-role-t">Computer Science & Engineering</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 2 -->
+                            <div class="testimonial-slide">
+                                <div class="testimonial-card glass-card">
+                                    <div class="testimonial-quote"><i class="fa-solid fa-quote-left"></i></div>
+                                    <p class="testimonial-text">
+                                        "Collaborating with Bibhuti on medical vision research has been incredibly rewarding. His dedication to academic rigor and scientific integrity shines through every paper."
+                                    </p>
+                                    <div class="testimonial-author">
+                                        <div class="author-avatar"><i class="fa-solid fa-user-gear"></i></div>
+                                        <div>
+                                            <h4 class="author-name-t">Research Collaborator</h4>
+                                            <span class="author-role-t">Medical AI Research Group</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Slide 3 -->
+                            <div class="testimonial-slide">
+                                <div class="testimonial-card glass-card">
+                                    <div class="testimonial-quote"><i class="fa-solid fa-quote-left"></i></div>
+                                    <p class="testimonial-text">
+                                        "An outstanding educator and active departmental leader. His contributions to modernizing curriculum and mentoring students in competitive project developments are invaluable."
+                                    </p>
+                                    <div class="testimonial-author">
+                                        <div class="author-avatar"><i class="fa-solid fa-chalkboard-user"></i></div>
+                                        <div>
+                                            <h4 class="author-name-t">Faculty Colleague</h4>
+                                            <span class="author-role-t">Srinath University</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <button class="carousel-nav next" id="testimonial-next" aria-label="Next Testimonial">
+                        <i class="fa-solid fa-chevron-right"></i>
+                    </button>
+
+                    <div class="carousel-dots" id="carousel-dots">
+                        <span class="dot active" data-slide="0"></span>
+                        <span class="dot" data-slide="1"></span>
+                        <span class="dot" data-slide="2"></span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOG SECTION -->
+        <section id="blog" class="section">
+            <div class="container">
+                <div class="section-header text-center" data-aos="fade-up">
+                    <span class="section-subtitle">Academic Articles & Insights</span>
+                    <h2 class="section-title">Research Blog</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="blog-grid">
+                    <div class="blog-card glass-card" data-aos="fade-up">
+                        <div class="blog-image">
+                            <img src="assets/images/seminar.jpg" alt="Medical AI" loading="lazy">
+                            <span class="blog-category">Computer Vision</span>
+                        </div>
+                        <div class="blog-body">
+                            <div class="blog-meta"><i class="fa-regular fa-calendar"></i> Jan 2026 • 5 min read</div>
+                            <h3 class="blog-title">The Future of Ocular AI: Early Detection of Neurological Disorders</h3>
+                            <p class="blog-snippet">How retinal image processing and convolutional neural networks are transforming non-invasive neuro diagnostics.</p>
+                            <button onclick="readArticle('ocular-ai')" class="blog-read-btn">Read Article <i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="blog-card glass-card" data-aos="fade-up" data-aos-delay="100">
+                        <div class="blog-image">
+                            <img src="assets/images/lab.jpg" alt="Machine Learning" loading="lazy">
+                            <span class="blog-category">Machine Learning</span>
+                        </div>
+                        <div class="blog-body">
+                            <div class="blog-meta"><i class="fa-regular fa-calendar"></i> Nov 2025 • 7 min read</div>
+                            <h3 class="blog-title">Building Resilient Real-Time Machine Learning Pipelines</h3>
+                            <p class="blog-snippet">Best practices for streaming sensor data ingestion, model monitoring, and online anomaly detection.</p>
+                            <button onclick="readArticle('ml-pipelines')" class="blog-read-btn">Read Article <i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="blog-card glass-card" data-aos="fade-up" data-aos-delay="200">
+                        <div class="blog-image">
+                            <img src="assets/images/teaching.jpg" alt="Academic Writing" loading="lazy">
+                            <span class="blog-category">Academic Writing</span>
+                        </div>
+                        <div class="blog-body">
+                            <div class="blog-meta"><i class="fa-regular fa-calendar"></i> Aug 2025 • 4 min read</div>
+                            <h3 class="blog-title">How to Write Impactful Computer Science Papers</h3>
+                            <p class="blog-snippet">A scholar's guide to structuring research abstracts, presenting metrics, and selecting target indexed journals.</p>
+                            <button onclick="readArticle('academic-writing')" class="blog-read-btn">Read Article <i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="section bg-alt">
+            <div class="container">
+                <div class="section-header text-center" data-aos="fade-up">
+                    <span class="section-subtitle">Let's Connect</span>
+                    <h2 class="section-title">Contact & Communication</h2>
+                    <div class="title-underline"></div>
+                </div>
+
+                <div class="contact-grid">
+                    <!-- Left Contact Info Card -->
+                    <div class="contact-info-card glass-card" data-aos="fade-right">
+                        <h3>Reach Out Directly</h3>
+                        <p>Feel free to connect for academic research collaborations, workshop invitations, paper reviews, or student project guidance.</p>
+
+                        <div class="contact-detail-list">
+                            <div class="contact-item">
+                                <div class="c-icon"><i class="fa-solid fa-user-doctor"></i></div>
+                                <div class="c-meta">
+                                    <span class="c-label">Name & Title</span>
+                                    <span class="c-val">Bibhuti Kumbhakar (Assistant Professor)</span>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="c-icon"><i class="fa-solid fa-building-columns"></i></div>
+                                <div class="c-meta">
+                                    <span class="c-label">Institution</span>
+                                    <span class="c-val">Srinath University, Jamshedpur</span>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="c-icon"><i class="fa-solid fa-phone"></i></div>
+                                <div class="c-meta">
+                                    <span class="c-label">Phone Contact</span>
+                                    <a href="tel:+918651996406" class="c-link">+91 8651996406</a>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="c-icon"><i class="fa-solid fa-envelope"></i></div>
+                                <div class="c-meta">
+                                    <span class="c-label">Primary Email</span>
+                                    <a href="mailto:bibhutikumbhakar@gmail.com" class="c-link">bibhutikumbhakar@gmail.com</a>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="c-icon"><i class="fa-regular fa-envelope"></i></div>
+                                <div class="c-meta">
+                                    <span class="c-label">Institutional Email</span>
+                                    <a href="mailto:bibhuti.ku@srinathuniversity.ac.in" class="c-link">bibhuti.ku@srinathuniversity.ac.in</a>
+                                </div>
+                            </div>
+
+                            <div class="contact-item">
+                                <div class="c-icon"><i class="fa-solid fa-location-dot"></i></div>
+                                <div class="c-meta">
+                                    <span class="c-label">Location</span>
+                                    <span class="c-val">Seraikella / Jamshedpur, Jharkhand, India</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Professional Links -->
+                        <div class="contact-socials mt-4">
+                            <span class="c-label d-block mb-2">Professional Profiles:</span>
+                            <div class="social-links-grid">
+                                <a href="https://www.linkedin.com/in/bibhutikumbhakar/" target="_blank" rel="noopener" class="social-btn linkedin">
+                                    <i class="fa-brands fa-linkedin-in"></i> LinkedIn
+                                </a>
+                                <a href="https://github.com/bibhutideveloper" target="_blank" rel="noopener" class="social-btn github">
+                                    <i class="fa-brands fa-github"></i> GitHub
+                                </a>
+                                <a href="https://scholar.google.com/citations?user=AL9aBgUAAAAJ&hl=en" target="_blank" rel="noopener" class="social-btn scholar">
+                                    <i class="fa-brands fa-google-scholar"></i> Google Scholar
+                                </a>
+                                <a href="https://orcid.org/0009-0006-7298-2164" target="_blank" rel="noopener" class="social-btn orcid">
+                                    <i class="fa-brands fa-orcid"></i> ORCID
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Right Contact Form -->
+                    <div class="contact-form-card glass-card" data-aos="fade-left">
+                        <h3>Send a Message</h3>
+                        <form id="contact-form" onsubmit="handleFormSubmit(event)">
+                            <div class="form-group">
+                                <label for="name">Your Name *</label>
+                                <input type="text" id="name" required placeholder="Dr. / Prof. / Mr. Full Name">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" required placeholder="your.name@institution.edu">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject">Subject *</label>
+                                <input type="text" id="subject" required placeholder="Research Collaboration / Query">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message">Message *</label>
+                                <textarea id="message" rows="5" required placeholder="Write your message here..."></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block btn-magnetic">
+                                <i class="fa-solid fa-paper-plane"></i> Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Interactive Globe-to-Location Zoom Map -->
+                <div class="map-container glass-card mt-5" data-aos="fade-up">
+                    <h4 class="map-title mb-3"><i class="fa-solid fa-earth-asia"></i> Campus Location - Jamshedpur, Jharkhand</h4>
+                    <div id="interactive-map" style="height: 380px; width: 100%; border-radius: 14px; overflow: hidden; position: relative; border: 1px solid rgba(255,255,255,0.1);"></div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="footer">
+        <div class="container footer-container">
+            <div class="footer-brand">
+                <a href="#home" class="footer-logo">Bibhuti Kumbhakar</a>
+                <p class="footer-subtitle">Assistant Professor | AI Researcher | Ph.D. Scholar</p>
+                <p class="footer-inst">Srinath University & BIT Mesra</p>
+            </div>
+
+            <div class="footer-links">
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="#about">About Me</a></li>
+                    <li><a href="#research-interests">Research</a></li>
+                    <li><a href="#publications">Publications</a></li>
+                    <li><a href="#projects">Projects</a></li>
+                    <li><a href="#teaching">Teaching</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-socials">
+                <h4>Research Profiles</h4>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/bibhutikumbhakar/" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="https://github.com/bibhutideveloper" target="_blank" rel="noopener" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://scholar.google.com/citations?user=AL9aBgUAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar"><i class="fa-brands fa-google-scholar"></i></a>
+                    <a href="https://orcid.org/0009-0006-7298-2164" target="_blank" rel="noopener" aria-label="ORCID"><i class="fa-brands fa-orcid"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom text-center">
+            <div class="container">
+                <p>&copy; 2026 Bibhuti Kumbhakar. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODALS -->
+
+    <!-- Image Lightbox Modal -->
+    <div id="lightbox-modal" class="modal">
+        <div class="modal-content lightbox-content">
+            <span class="modal-close" onclick="closeLightbox()">&times;</span>
+            <img id="lightbox-img" src="" alt="Enlarged View">
+            <div id="lightbox-caption" class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <!-- Citation Modal -->
+    <div id="cite-modal" class="modal">
+        <div class="modal-content glass-card">
+            <span class="modal-close" onclick="closeCiteModal()">&times;</span>
+            <h3 id="cite-modal-title">Citation Information</h3>
+            <div class="cite-box" id="cite-text"></div>
+            <button onclick="copyCitation()" class="btn btn-sm btn-primary mt-3"><i class="fa-solid fa-copy"></i> Copy Citation</button>
+        </div>
+    </div>
+
+    <!-- BibTeX Modal -->
+    <div id="bibtex-modal" class="modal">
+        <div class="modal-content glass-card">
+            <span class="modal-close" onclick="closeBibtexModal()">&times;</span>
+            <h3>BibTeX Entry</h3>
+            <pre class="bibtex-pre" id="bibtex-code"></pre>
+            <button onclick="copyBibtex()" class="btn btn-sm btn-primary mt-3"><i class="fa-solid fa-copy"></i> Copy BibTeX</button>
+        </div>
+    </div>
+
+    <!-- CV Download Modal -->
+    <div id="cv-modal" class="modal">
+        <div class="modal-content glass-card" style="max-width: 600px;">
+            <span class="modal-close" onclick="closeCvModal()">&times;</span>
+            <h3><i class="fa-solid fa-file-pdf"></i> Curriculum Vitae - Bibhuti Kumbhakar</h3>
+            <p class="mt-2">Download the complete academic CV including detailed research background, full publication record, teaching history, and institutional credentials.</p>
+            <div class="cv-preview-box glass-card my-3 p-3 text-center">
+                <i class="fa-solid fa-file-invoice fa-3x mb-2" style="color: var(--accent-primary);"></i>
+                <p><strong>Bibhuti_Kumbhakar_Academic_CV.pdf</strong></p>
+                <small class="text-muted">Updated 2026 • Format: PDF • Size: 245 KB</small>
+            </div>
+            <div class="d-flex gap-2 justify-content-end">
+                <button onclick="triggerCvDownload()" class="btn btn-primary"><i class="fa-solid fa-download"></i> Download PDF CV</button>
+                <button onclick="closeCvModal()" class="btn btn-outline">Close</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Article Reader Modal -->
+    <div id="article-modal" class="modal">
+        <div class="modal-content glass-card article-modal-content">
+            <span class="modal-close" onclick="closeArticleModal()">&times;</span>
+            <div id="article-body"></div>
+        </div>
+    </div>
+
+    <!-- Toast Notification -->
+    <div id="toast" class="toast"></div>
+
+    <!-- Leaflet JS for Animated Globe-to-Location Map -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+    <!-- Custom JS -->
+    <script src="script.js"></script>
+</body>
+</html>
