@@ -640,69 +640,46 @@ function showToast(message) {
 }
 
 /* --------------------------------------------------------------------------
-   12. Interactive Globe-to-Location FlyTo Map Animation (Theme Responsive)
+   12. MapLibre GL JS 3D Vector Map Engine with FlyTo Transition
    -------------------------------------------------------------------------- */
 function initInteractiveMap() {
     const mapElement = document.getElementById('interactive-map');
-    if (!mapElement || typeof L === 'undefined') return;
+    if (!mapElement || typeof maplibregl === 'undefined') return;
 
-    const jamshedpurCoords = [22.7831, 86.1311];
-    const initialGlobeCoords = [20.0, 15.0]; // World / Globe View over Asia/India
+    const jamshedpurCoords = [86.1311, 22.7831]; // MapLibre uses [lng, lat]
+    const initialGlobeCoords = [15.0, 20.0];    // World view over Asia/India
 
-    // Initialize Map at World Globe View (Zoom Level 2)
-    const map = L.map('interactive-map', {
-        center: initialGlobeCoords,
-        zoom: 2,
-        zoomControl: true,
-        scrollWheelZoom: false
-    });
+    const darkStyleUrl = 'https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json';
+    const lightStyleUrl = 'https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json';
 
-    const lightTileUrl = 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png';
-    const darkTileUrl = 'https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png';
-
-    function getTileUrl() {
+    function getStyleUrl() {
         const theme = document.documentElement.getAttribute('data-theme');
-        return theme === 'light' ? lightTileUrl : darkTileUrl;
+        return theme === 'light' ? lightStyleUrl : darkStyleUrl;
     }
 
-    let currentTileLayer = L.tileLayer(getTileUrl(), {
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
-        subdomains: 'abcd',
-        maxZoom: 19
-    }).addTo(map);
-
-    function updateMapTheme() {
-        if (currentTileLayer) map.removeLayer(currentTileLayer);
-        currentTileLayer = L.tileLayer(getTileUrl(), {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com/">CARTO</a>',
-            subdomains: 'abcd',
-            maxZoom: 19
-        }).addTo(map);
-    }
-
-    // Listen to theme toggle button
-    const themeToggleBtn = document.getElementById('theme-toggle');
-    if (themeToggleBtn) {
-        themeToggleBtn.addEventListener('click', () => {
-            setTimeout(updateMapTheme, 50);
-        });
-    }
-
-    // Custom Glowing Neon Marker
-    const customIcon = L.divIcon({
-        className: 'custom-map-marker',
-        html: `
-            <div class="marker-pulse-wrapper">
-                <div class="marker-pulse-ring"></div>
-                <div class="marker-pin"><i class="fa-solid fa-location-dot"></i></div>
-            </div>
-        `,
-        iconSize: [36, 36],
-        iconAnchor: [18, 36],
-        popupAnchor: [0, -32]
+    const map = new maplibregl.Map({
+        container: 'interactive-map',
+        style: getStyleUrl(),
+        center: initialGlobeCoords,
+        zoom: 2.2,
+        pitch: 0,
+        bearing: 0,
+        scrollZoom: false,
+        attributionControl: false
     });
 
-    const marker = L.marker(jamshedpurCoords, { icon: customIcon }).addTo(map);
+    map.addControl(new maplibregl.NavigationControl({ showCompass: true, showZoom: true }), 'top-right');
+    map.addControl(new maplibregl.AttributionControl({ compact: true }), 'bottom-right');
+
+    // Create Custom Animated Neon Marker Element
+    const el = document.createElement('div');
+    el.className = 'custom-maplibre-marker';
+    el.innerHTML = `
+        <div class="marker-pulse-wrapper">
+            <div class="marker-pulse-ring"></div>
+            <div class="marker-pin"><i class="fa-solid fa-location-dot"></i></div>
+        </div>
+    `;
 
     const popupContent = `
         <div class="map-popup-card">
@@ -712,30 +689,47 @@ function initInteractiveMap() {
         </div>
     `;
 
-    marker.bindPopup(popupContent);
+    const popup = new maplibregl.Popup({ offset: 30, closeButton: false })
+        .setHTML(popupContent);
+
+    const marker = new maplibregl.Marker({ element: el })
+        .setLngLat(jamshedpurCoords)
+        .setPopup(popup)
+        .addTo(map);
+
+    function updateMapTheme() {
+        map.setStyle(getStyleUrl());
+    }
+
+    const themeToggleBtn = document.getElementById('theme-toggle');
+    if (themeToggleBtn) {
+        themeToggleBtn.addEventListener('click', () => {
+            setTimeout(updateMapTheme, 50);
+        });
+    }
 
     let hasAnimated = false;
 
     function triggerGlobeZoomAnimation() {
-        // Reset to world view first
-        map.setView(initialGlobeCoords, 2, { animate: false });
-        marker.closePopup();
+        map.jumpTo({ center: initialGlobeCoords, zoom: 2.2, pitch: 0, bearing: 0 });
+        popup.remove();
 
-        // Perform FlyTo Animation from Globe View (Zoom 2) to Jamshedpur (Zoom 13)
         setTimeout(() => {
-            map.flyTo(jamshedpurCoords, 13, {
-                duration: 3.5,
-                easeLinearity: 0.25
+            map.flyTo({
+                center: jamshedpurCoords,
+                zoom: 13.5,
+                pitch: 48,       // 3D Pitch Tilt Angle!
+                bearing: -15,    // 3D Camera Rotation!
+                duration: 4000,  // Smooth 4 second WebGL 60fps fly-in
+                essential: true
             });
         }, 300);
 
-        // Open Popup after zoom completes
         setTimeout(() => {
-            marker.openPopup();
-        }, 3900);
+            popup.addTo(map);
+        }, 4400);
     }
 
-    // Trigger animation when map section scrolls into view
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting && !hasAnimated) {
