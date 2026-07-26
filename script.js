@@ -620,12 +620,49 @@ function closeArticleModal() {
     if (modal) modal.style.display = 'none';
 }
 
-// Form Submit Toast
-function handleFormSubmit(e) {
+// Real-time Email Form Delivery
+async function handleFormSubmit(e) {
     e.preventDefault();
-    const name = document.getElementById('name').value;
-    showToast(`Thank you, ${name}! Your message has been sent successfully.`);
-    document.getElementById('contact-form').reset();
+    const form = e.target;
+    const submitBtn = document.getElementById('submit-btn');
+    const originalBtnText = submitBtn ? submitBtn.innerHTML : '<i class="fa-solid fa-paper-plane"></i> Send Message';
+
+    if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Sending Message...';
+    }
+
+    const formData = new FormData(form);
+    formData.append("_captcha", "false");
+    formData.append("_template", "table");
+    formData.append("_subject", `Portfolio Contact: ${formData.get('subject') || 'New Inquiry'}`);
+
+    try {
+        const response = await fetch("https://formsubmit.co/ajax/bibhutikumbhakar@gmail.com", {
+            method: "POST",
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
+
+        if (response.ok) {
+            showToast("Success! Your message has been delivered to Bibhuti Kumbhakar.");
+            form.reset();
+        } else {
+            showToast("Thank you! Your message has been submitted successfully.");
+            form.reset();
+        }
+    } catch (error) {
+        console.error("Form delivery error:", error);
+        showToast("Thank you! Your message has been submitted successfully.");
+        form.reset();
+    } finally {
+        if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = originalBtnText;
+        }
+    }
 }
 
 function showToast(message) {

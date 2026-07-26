@@ -1417,25 +1417,25 @@
                         <form id="contact-form" onsubmit="handleFormSubmit(event)">
                             <div class="form-group">
                                 <label for="name">Your Name *</label>
-                                <input type="text" id="name" required placeholder="Dr. / Prof. / Mr. Full Name">
+                                <input type="text" id="name" name="name" required placeholder="Dr. / Prof. / Mr. Full Name">
                             </div>
 
                             <div class="form-group">
                                 <label for="email">Email Address *</label>
-                                <input type="email" id="email" required placeholder="your.name@institution.edu">
+                                <input type="email" id="email" name="email" required placeholder="your.name@institution.edu">
                             </div>
 
                             <div class="form-group">
                                 <label for="subject">Subject *</label>
-                                <input type="text" id="subject" required placeholder="Research Collaboration / Query">
+                                <input type="text" id="subject" name="subject" required placeholder="Research Collaboration / Query">
                             </div>
 
                             <div class="form-group">
                                 <label for="message">Message *</label>
-                                <textarea id="message" rows="5" required placeholder="Write your message here..."></textarea>
+                                <textarea id="message" name="message" rows="5" required placeholder="Write your message here..."></textarea>
                             </div>
 
-                            <button type="submit" class="btn btn-primary btn-block btn-magnetic">
+                            <button type="submit" id="submit-btn" class="btn btn-primary btn-block btn-magnetic">
                                 <i class="fa-solid fa-paper-plane"></i> Send Message
                             </button>
                         </form>
