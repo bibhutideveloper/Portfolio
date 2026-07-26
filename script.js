@@ -234,19 +234,24 @@ function initMobileNav() {
 
     if (mobileToggle && navMenu) {
         mobileToggle.addEventListener('click', () => {
-            navMenu.classList.toggle('active');
+            const isActive = navMenu.classList.toggle('active');
             const icon = mobileToggle.querySelector('i');
-            if (navMenu.classList.contains('active')) {
+            if (isActive) {
                 icon.className = 'fa-solid fa-xmark';
+                document.body.style.overflow = 'hidden';
             } else {
                 icon.className = 'fa-solid fa-bars';
+                document.body.style.overflow = '';
             }
         });
 
         navLinks.forEach(link => {
             link.addEventListener('click', () => {
                 navMenu.classList.remove('active');
-                mobileToggle.querySelector('i').className = 'fa-solid fa-bars';
+                if (mobileToggle.querySelector('i')) {
+                    mobileToggle.querySelector('i').className = 'fa-solid fa-bars';
+                }
+                document.body.style.overflow = '';
             });
         });
     }

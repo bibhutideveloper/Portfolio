@@ -1229,6 +1229,8 @@ img {
     font-family: 'JetBrains Mono', monospace;
     color: var(--text-secondary);
     margin-bottom: 0.8rem;
+    word-break: break-word;
+    overflow-wrap: anywhere;
 }
 
 .pub-doi a {
@@ -1236,6 +1238,8 @@ img {
     text-decoration: underline;
     text-underline-offset: 3px;
     transition: color 0.3s ease;
+    word-break: break-all;
+    overflow-wrap: anywhere;
 }
 
 .pub-doi a:hover {
@@ -2154,7 +2158,7 @@ img {
     }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .nav-menu {
         position: fixed;
         top: 70px;
@@ -2162,9 +2166,16 @@ img {
         width: 100%;
         height: calc(100vh - 70px);
         background: var(--bg-secondary);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
         flex-direction: column;
-        justify-content: center;
-        transition: left 0.4s ease;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 2rem 1.5rem 4rem 1.5rem;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        transition: left 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        z-index: 9999;
     }
 
     .nav-menu.active {
@@ -2173,10 +2184,18 @@ img {
 
     .nav-list {
         flex-direction: column;
-        gap: 1.8rem;
+        align-items: center;
+        gap: 1.2rem;
+        width: 100%;
     }
 
-    .nav-link { font-size: 1.2rem; }
+    .nav-link { 
+        font-size: 1.15rem; 
+        padding: 0.4rem 1rem;
+        display: block;
+        text-align: center;
+    }
+    
     .nav-cta { display: none; }
     .mobile-menu-btn { display: inline-flex; }
 
